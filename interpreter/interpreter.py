@@ -275,4 +275,3 @@ class Interpreter:
             index: int = self.evaluate(context, i)
             new_indices.append(index)
         return new_indices
-

@@ -13,6 +13,8 @@ int sum_2d_array(int[][] array) {
 }
 
 void print_result(int sum) {
+    print("Sum = " + i_to_s(sum));
+
     if (sum > MAX_SUM) {
         print("Sum exceeded maximum");
     } else if (sum == MAX_SUM) {
