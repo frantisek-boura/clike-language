@@ -2,6 +2,7 @@
 
 * functions
 * int, float, str datatypes
+* conditions
 * if, for statements
 * recursion
 * multidimensional arrays
