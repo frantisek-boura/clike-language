@@ -6,6 +6,7 @@
 * if, for statements
 * recursion
 * multidimensional arrays
+* i/o + datatype conversion built-in functions
 
 ## how to run:
 
