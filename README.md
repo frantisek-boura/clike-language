@@ -1,3 +1,11 @@
+## features:
+
+* functions
+* int, float, str datatypes
+* if, for statements
+* recursion
+* multidimensional arrays
+
 ## how to run:
 
 1. make sure you have python 3 installed
