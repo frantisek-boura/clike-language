@@ -1,0 +1,33 @@
+const int MAX_SUM = 97;
+
+int sum_2d_array(int[][] array) {
+    int sum = 0;
+
+    for (int x = 0; x < len(array); x = x + 1) {
+        for (int y = 0; y < len(array[x]); y = y + 1) {
+            sum = sum + array[x][y];
+        }
+    }
+
+    return sum;
+}
+
+void print_result(int sum) {
+    if (sum > MAX_SUM) {
+        print("Sum exceeded maximum");
+    } else if (sum == MAX_SUM) {
+        print("Just enough");
+    } else {
+        print("You can do better");
+    }
+}
+
+int[][] arr = int[3][3] @ [
+    [1, 2, 3],
+    [50, 30, 0],
+    [-2, 10, 3]
+];
+
+int total_sum = sum_2d_array(arr);
+print_result(total_sum);
+

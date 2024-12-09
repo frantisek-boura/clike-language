@@ -1,0 +1,11 @@
+int factorial(int number) {
+    if (number == 0 || number == 1) {
+        return 1;
+    } else {
+        return number * factorial(number - 1);
+    }
+}
+
+int number = s_to_i(read());
+int result = factorial(number);
+print("Factorial of " + i_to_s(number) + " is: " + i_to_s(result));

@@ -1,0 +1,21 @@
+const float DESIRED_MIN_AREA = 20.5;
+
+float calculate_area(float width, float height) {
+    return width * height;
+}
+
+float[] get_dimensions() {
+    print("Enter dimensions: ");
+
+    float[] dims = float[2] @ [s_to_f(read()), s_to_f(read())];
+
+    return dims;
+}
+
+float[] dim = get_dimensions();
+float area = calculate_area(dim[0], dim[1]);
+print("Area: " + f_to_s(area));
+
+if (area > DESIRED_MIN_AREA) {
+    print("Just enough");
+}

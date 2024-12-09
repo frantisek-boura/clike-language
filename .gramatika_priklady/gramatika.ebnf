@@ -1,0 +1,39 @@
+program = { statement } ;
+
+array_datatype = datatype '[]' { '[]' } ;
+datatype = 'int' | 'float' | 'str' ;
+
+function_call = ident '(' [ expression { ',' expression } ] ')' ;
+variable_or_array_element = ident [ '[' expression ']' ] { '[' expression ']' } ;
+variable_assignment = ident '=' expression ;
+array_element_assignment = ident '[' expression ']' { '[' expression ']' } '=' ( array_declaration | expression ) ;
+constant = 'const' datatype ident '=' value ;
+array_declaration = '[' [ ( array_declaration | expression ) { ',' ( array_declaration | expression ) } ] ']' ;
+array = array_datatype ident [ '=' [ ( datatype { '[' lit_int ']' } [ '@' array_declaration ] ) | function_call ] ] ;
+variable =  datatype ident [ '=' expression ] ;
+
+non_block_statement = ( 'return' [ expression ] ) | function_call | constant | array | variable | array_element_assignment | variable_assignment ';' ;
+
+function_statement = ( array_datatype | datatype | 'void' ) ident '(' [ ( array_datatype | datatype ) ident { ',' ( array_datatype | datatype ) ident } ] ')' block ;
+if_statement = 'if' '(' condition ')' block [ { 'else' if_statement } ] [ 'else' block ] ;
+for_statement = 'for' '(' variable ';' condition ';' variable_assignment ')' block ;
+
+block = '{' [ statement ] '}' ;
+block_statement = if_statement | for_statement | function_statement ;
+
+statement = { non_block_statement | block_statement } ;
+
+logical_op = '==' | '!=' | '<' | '<=' | '>' | '>=' ;
+condition = expression logical_op expression ;
+
+expression = [ '+' | '-' ] term { ( '+' | '-' ) term } ;
+term = factor { ( '*' | '/' ) factor} ;
+factor = function_call | value | variable_or_array_element  | '(' expression ')' ;
+
+value = lit_num | lit_str ;
+lit_num = lit_float | lit_int ;
+ident = /\w[\w\d]*/ ;
+lit_float = /\d*\.\d+/ ;
+lit_int = /\d+/ ;
+lit_str = /\"[^"]*\"/ ;
+
