@@ -1,4 +1,4 @@
-## Usage:
+## how to run:
 
 1. make sure you have python 3 installed
 2. cd into the project's folder
