@@ -1,5 +1,6 @@
 import sys
 import os
+import os
 from interpreter.program import Program
 
 arguments = sys.argv
