@@ -31,7 +31,7 @@ class Semantics:
         self.var_stack: list[Variable] = []
         self.const_stack: list[Constant] = []
         self.func_stack: list[Function] = []
-        self.currently_in: Function = None 
+        self.currently_in: list[Function] = [] 
     
     def find_var(self, name: str) -> Variable:
         for v in self.var_stack:
@@ -121,19 +121,19 @@ class Semantics:
             raise Exception(f'Cannot compare strings with op {condition.op}')
 
     def check_return_statement(self, statement: ReturnStatement) -> None:
-        if self.currently_in == None:
+        if len(self.currently_in) == 0:
             raise Exception('Random return statement')
         if statement.value == None:
             return
         if isinstance(statement.value, Array):
-            self.compare_datatypes(self.currently_in.datatype, statement.value.datatype)
+            self.compare_datatypes(self.currently_in[-1].datatype, statement.value.datatype)
         elif isinstance(statement.value, Expression):
             datatype: Datatype = self.check_expression(statement.value)
-            self.compare_datatypes(self.currently_in.datatype, datatype)
+            self.compare_datatypes(self.currently_in[-1].datatype, datatype)
             statement.value.datatype = datatype
 
     def check_function(self, statement: Function) -> None:
-        self.currently_in = statement
+        self.currently_in.append(statement)
         datatype: Datatype = statement.datatype
         if datatype.name != 'void':
             block: Block = statement.block
@@ -145,7 +145,7 @@ class Semantics:
             if not found:
                 raise Exception(f'Missing return statement in function {statement.name}')
         self.check_block(statement.block)
-        self.currently_in = None 
+        self.currently_in.pop()
     
     def check_function_call(self, statement: FunctionCall) -> Datatype:
         existing_function: Function = self.find_func(statement.name)

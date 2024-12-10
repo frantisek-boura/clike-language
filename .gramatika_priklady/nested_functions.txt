@@ -1,0 +1,17 @@
+void main() {
+    int b = 10;
+    int add(int a) {
+        float pr() {
+            return 0.05;
+        }
+
+        print(f_to_s(pr()));
+
+        return b + a;
+    }
+
+    int c = add(10);
+    print(i_to_s(c));
+}
+
+main();
