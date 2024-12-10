@@ -19,15 +19,3 @@ class Array:
             return str(element)
         else:
             return repr(element)
-
-    #def set_element(self, context: Context, array_element: ArrayElement, value: Any, element = None, depth: int = 0) -> None:
-        #if element == None:
-            #element = self.elements
-        #i: int = context.evaluate(context, array_element.indices[depth])
-        #if depth < len(array_element.indices):
-            #self.set_element(context, array_element, value, element[i], depth + 1)
-        #else:
-            #if isinstance(value, Array):
-                #element = value.elements
-            #elif isinstance(value, Expressible):
-                #element = context.evaluate(context, value)
