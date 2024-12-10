@@ -132,6 +132,10 @@ class Interpreter:
                 self.returned_values.append(executables['i_to_s'](args[0]))
             case 'f_to_s':
                 self.returned_values.append(executables['f_to_s'](args[0]))
+            case 'f_to_i':
+                self.returned_values.append(executables['f_to_i'](args[0]))
+            case 'i_to_f':
+                self.returned_values.append(executables['i_to_f'](args[0]))
             case 'len': 
                 self.returned_values.append(executables['len'](args[0]))
 

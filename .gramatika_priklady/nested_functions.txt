@@ -1,17 +1,24 @@
-void main() {
-    int b = 10;
+void func() {
+    int num = 10;
     int add(int a) {
         float pr() {
-            return 0.05;
+            return 3.14159;
         }
 
-        print(f_to_s(pr()));
+        return num + a + f_to_i(pr());
+    }
 
-        return b + a;
+    int subtract(int a) {
+        if (a > 10) {
+            a = 10;
+        }
+        return num - a;
     }
 
     int c = add(10);
     print(i_to_s(c));
+    int d = subtract(200);
+    print(i_to_s(d));
 }
 
-main();
+func();

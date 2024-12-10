@@ -53,6 +53,22 @@ functions: list[Function] = [
         None # Nepotřebuji definovat body pro tyto funkce, řeším je v interpretu
     ),
     Function(
+        'f_to_i',                                           # Název funkce
+        Datatype('int'),                                    # Návratový typ
+        [
+            FunctionParameter('value', Datatype('float'))   # Parametry funkce
+        ],     
+        None # Nepotřebuji definovat body pro tyto funkce, řeším je v interpretu
+    ),
+    Function(
+        'i_to_f',                                           # Název funkce
+        Datatype('float'),                                  # Návratový typ
+        [
+            FunctionParameter('value', Datatype('int'))     # Parametry funkce
+        ],     
+        None # Nepotřebuji definovat body pro tyto funkce, řeším je v interpretu
+    ),
+    Function(
         'len',                                              # Název funkce
         Datatype('int'),                                    # Návratový typ
         [
@@ -98,6 +114,14 @@ def f_to_s(value: float) -> str:
 def llen(array: list) -> int:
     return len(array)
 
+# float i_to_f(int)
+def i_to_f(value: int) -> float:
+    return float(value)
+
+# int f_to_i(float)
+def f_to_i(value: float) -> int:
+    return int(value)
+
 executables: dict[str, callable] = {
     'read': read,
     'print': pprint,
@@ -105,5 +129,7 @@ executables: dict[str, callable] = {
     's_to_f': s_to_f,
     'i_to_s': i_to_s,
     'f_to_s': f_to_s,
+    'i_to_f': i_to_f,
+    'f_to_i': f_to_i,
     'len': llen
 }
