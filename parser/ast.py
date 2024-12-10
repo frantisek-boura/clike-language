@@ -38,7 +38,10 @@ class AST:
         return False
     
     def parse(self) -> Block:
-        return self.read_block()
+        try:
+            return self.read_block()
+        except Exception as e:
+            print(e)
 
     def read_block(self) -> Block:
         block: Block = Block()

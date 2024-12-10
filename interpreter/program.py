@@ -13,6 +13,8 @@ class Program:
         tokens = get_tokens(code)
         iter: PeekableIter = PeekableIter(tokens)
         ast: Block = AST(iter).parse()
+        if ast == None:
+            return
         valid: bool = Semantics().validate(ast)
         if valid:
             Interpreter().start(ast)
